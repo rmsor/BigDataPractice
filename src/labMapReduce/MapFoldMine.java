@@ -3,20 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bigdatapractice;
+package labMapReduce;
 
 /**
  *
- * @author 984317
+ * @author rmsor_000
  */
-public class MapFold {
-
+public class MapFoldMine {
+ 
     public static int f(int x) {
-        return (x % 2 == 0) ? 1 : -1;
+        return isPrime(x);
     }
 
     public static int g(int x, int y) {
-        return x + y;
+        if(x==-1) return y;
+	if((x==0 && y==1) || (x==1 && y==0)) return y;
+	if(x==y || x==2) return 2;
+        return 2;
     }
 
     public static int isPrime(int n) {
@@ -32,7 +35,7 @@ public class MapFold {
     }
 
     public static void main(String[] args) {
-        int[] a = {13, 11, 12, 16, 0, 21};
+        int[] a = {17,17,4,13, 10,11,17};
         int[] b = new int[a.length];
         int[] c = new int[a.length];
 
@@ -40,7 +43,7 @@ public class MapFold {
             b[i] = f(a[i]);
         }
 
-        int x = 0;
+        int x = -1;
         for (int i = 0; i < a.length; i++) {
             x = g(x, b[i]);
             c[i] = x;

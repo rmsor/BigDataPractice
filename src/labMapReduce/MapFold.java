@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bigdatapractice;
+package labMapReduce;
 
 /**
  *
- * @author 984317
+ * @author rmsor_000
  */
-public class MapFoldMine {
-    
-public static int f(int x) {
+public class MapFold {
+
+    public static int f(int x) {
         return (x % 2 == 0) ? 1 : -1;
     }
 
