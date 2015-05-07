@@ -6,7 +6,6 @@
 package ireduce;
 
 import java.util.ArrayList;
-import sun.security.util.Length;
 
 /**
  *
@@ -70,8 +69,8 @@ public class IndexReduction {
     public static int[] degapReverse(int[] a) {
         int[] degap = new int[a.length];
         for (int i = 0; i < a.length; i++) {
-            if (i % 2 == 0 && i != 0 && i+2<a.length) {
-                degap[i] = a[i] + a[i + 2];
+            if (i % 2 == 0 && i != 0) {
+                degap[i] = degap[i-2] + a[i];
             } else {
                 degap[i] = a[i];
             }
@@ -139,7 +138,7 @@ public class IndexReduction {
         ArrayList<ArrayList<Byte>> arrByte = encode(degap);
         String str = "\t";
         for (int i = 0; i < arrByte.size(); i++) {
-            for (int j = 0; j < arrByte.get(i).size(); j++) {
+            for (int j = arrByte.get(i).size()-1; j >= 0; j--) {
                 str += toStringByte(arrByte.get(i).get(j)) + " ";
             }
 
